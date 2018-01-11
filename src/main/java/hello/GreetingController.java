@@ -139,10 +139,7 @@ public class GreetingController {
 				sb2.append(query2);	
 			br2.close();
 			
-			
 		}catch(Exception e){ e.printStackTrace();};
-
-		
 		
 		return sb.length()>0 ? sb.toString().replace("##dogimage##", sb2.toString()) : " No page found";
             // 	return "POSTGRES_NUM_OPS_METRIC_COUNT : "+ POSTGRES_NUM_OPS_METRIC_COUNT;
