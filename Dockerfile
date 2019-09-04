@@ -1,13 +1,6 @@
-FROM opsmx11/java:ubuntu16_java8
-
-RUN apt-get update  
-##&& apt-get install stress-ng -y
-ADD target/restapp.jar /restapp.jar
-COPY dockerrun.sh /usr/local/bin/dockerrun.sh
-RUN chmod +x /usr/local/bin/dockerrun.sh
-#COPY prometheus/jmx_prometheus_javaagent-0.1.0.jar /jmx_prometheus_javaagent-0.1.0.jar
-#COPY prometheus/tomcat.yml /tomcat.yml
-#COPY tomcat.yaml /etc/dd-agent/conf.d/tomcat.yaml
-#COPY install-dd.sh install-dd.sh
-#RUN DD_API_KEY=<KEY> bash install-dd.sh
-CMD ["dockerrun.sh"]
+FROM ubuntu:16.04
+MAINTAINER OpsMx
+#Install Open JDK 8 Jre
+RUN apt-get update && apt-get -y install openjdk-8-jre  && rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
