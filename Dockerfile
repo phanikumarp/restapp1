@@ -1,4 +1,4 @@
-FROM java:8
+FROM opsmx11/java:ubuntu16_java8
 
 RUN apt-get update  
 ##&& apt-get install stress-ng -y
